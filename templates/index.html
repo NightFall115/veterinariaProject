@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinaria</title>
+</head>
+<body>
+    <h1 class="titulo">Veterinaria</h1>
+    <nav class="barranav">
+        <ul>
+            <li><a href="{% url 'CrearDueño' %}">Dueño</a></li>
+            <li><a href="{% url 'EditarDueño' %}">Mascota</a></li>
+            <li><a href="{% url 'CrearDueño' %}">Cita Medica</a></li>
+        </ul>
+    </nav>
+    <div>
+        {% block contenido %}
+        
+        {% endblock  %}
+    </div>
+</body>
+</html>

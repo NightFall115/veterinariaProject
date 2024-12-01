@@ -17,6 +17,29 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from veterinariaApp import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',views.inicio,name='inicio'),
+    ###     Dueño       ###
+    path('crearDueño/',views.crearDueño,name='CrearDueño'),
+    path('listarDueño/',views.listarDueño,name='MostrarDueño'),
+    path('editarDueño/',views.editarDueño,name='EditarDueño'),
+    path('eliminarDueño/<int:id>',views.eliminarDueño,name='EliminarDueño'),
+    ###     Mascota     ###
+    path('CrearMascota/',views.crearMascota,name='CrearMascota'),
+    path('mostrarMascota/',views.listarMascota,name='MostrarMascota'),
+    path('EditarMascota/',views.editarMascota,name='EditarMascota'),
+    path('eliminarMascota/<int:id>',views.eliminarMascota,name='EliminarMascota'),
+    ###     Cita        ###
+    path('CrearCita/',views.crearMedica,name='CrearCita'),
+    path('MostrarCita/',views.listarCita,name='MostrarCita'),
+    path('EditarCita/',views.editarCita,name='EditarCita'),
+    path('eliminarCita/<int:id>',views.eliminarCita,name='EliminarCita'),
+    ###     Tratamiento     ###
+    path('CrearTratamiento/',views.crearTratamiento,name='CrearTratamiento'),
+    path('MostrarTratamiento/',views.listarTratamiento,name='MostrarTratamiento'),
+    path('EditarTratamiento/',views.editarTratamiento,name='EditarTratamiento'),
+    path('eliminarTratamiento/<int:id>',views.eliminarTratamiento,name='EliminarTratamiento'),
 ]
