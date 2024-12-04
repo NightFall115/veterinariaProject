@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h2>Editar Dueño</h2>
+<form action="{% url 'EditarDueño' dueño.id %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar Cambios</button>
+</form>
+<a href="{% url 'MostrarDueño' %}">Cancelar</a>
+{% endblock %}

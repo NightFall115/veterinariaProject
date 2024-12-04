@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h2>Editar Cita Médica</h2>
+<form action="{% url 'EditarCita' cita.id %}" method="POST">
+    {% csrf_token %}
+    
+    <label for="mascota">Mascota:</label>
+    {{ form.mascota }}
+    
+    <label for="veterinario">Veterinario:</label>
+    {{ form.veterinario }}
+    
+    <label for="fecha">Fecha:</label>
+    {{ form.fecha }}
+    
+    <label for="hora">Hora:</label>
+    {{ form.hora }}
+    
+    <label for="descripcion">Descripción:</label>
+    {{ form.descripcion }}
+    
+    <button type="submit">Guardar Cambios</button>
+</form>
+<a href="{% url 'MostrarCita' %}">Cancelar</a>
+{% endblock %}

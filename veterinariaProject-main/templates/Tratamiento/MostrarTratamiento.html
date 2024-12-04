@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2>Listado de Tratamientos</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Cita</th>
+                <th>Medicamentos</th>
+                <th>Instrucciones</th>
+                <th>Archivo Adjunto</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tratamiento in lista %}
+            <tr>
+                <td>{{ tratamiento.cita }}</td>
+                <td>{{ tratamiento.medicamentos }}</td>
+                <td>{{ tratamiento.instrucciones }}</td>
+                <td>
+                    {% if tratamiento.archivo_adjunto %}
+                        <a href="{{ tratamiento.archivo_adjunto.url }}">Descargar</a>
+                    {% else %}
+                        No hay archivo adjunto
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'EditarTratamiento' tratamiento.id %}" class="btn btn-warning">Editar</a>
+                    <a href="{% url 'EliminarTratamiento' tratamiento.id %}" onclick="return confirm('¿Estás seguro de eliminar el tratamiento?');">Eliminar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No hay tratamientos registrados.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

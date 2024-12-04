@@ -1,0 +1,10 @@
+
+{% extends "index.html" %}
+
+{% block content %}
+<h2>Menú de Citas Médicas</h2>
+<ul>
+    <li><a href="{% url 'CrearCita' %}">Crear Cita Médica</a></li>
+    <li><a href="{% url 'MostrarCita' %}">Listar Citas Médicas</a></li>
+</ul>
+{% endblock %}

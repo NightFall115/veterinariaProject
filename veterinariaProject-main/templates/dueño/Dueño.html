@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h2>Gestión de Dueños</h2>
+
+
+<div>
+    <ul>
+        <li><a href="{% url 'CrearDueño' %}" class="btn btn-success">Crear Dueño</a></li>
+        <li><a href="{% url 'MostrarDueño' %}" class="btn btn-info">Listar Dueños</a></li>
+        
+    </ul>
+</div>
+
+
+{% if dueño %}
+    
+    <div>
+        <h3>Información del Dueño: {{ dueño.nombre }}</h3>
+        <p><strong>Nombre:</strong> {{ dueño.nombre }}</p>
+        <p><strong>Teléfono:</strong> {{ dueño.telefono }}</p>
+        <p><strong>Dirección:</strong> {{ dueño.direccion }}</p>
+        <p><strong>Correo Electrónico:</strong> {{ dueño.email }}</p>
+
+        
+        <a href="{% url 'EditarDueño' dueño.id %}" class="btn btn-primary">Editar</a>
+        
+        
+        <form action="{% url 'EliminarDueño' dueño.id %}" method="POST" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar a este dueño?')">Eliminar</button>
+        </form>
+    </div>
+{% endif %}
+
+{% endblock %}

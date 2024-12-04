@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h2>{{ Titulo }}</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="nombre">Nombre de la Mascota:</label>
+        {{ Formulario.nombre }}
+    </div>
+
+    <div class="form-group">
+        <label for="raza">Raza:</label>
+        {{ Formulario.raza }}
+    </div>
+
+    <div class="form-group">
+        <label for="edad">Edad:</label>
+        {{ Formulario.edad }}
+    </div>
+
+    <div class="form-group">
+        <label for="tipo">Tipo (Perro, Gato):</label>
+        {{ Formulario.tipo }}
+    </div>
+
+    <div class="form-group">
+        <label for="foto">Foto de la Mascota (opcional):</label>
+        {{ Formulario.foto }}
+    </div>
+
+    <div class="form-group">
+        <label for="dueño">Dueño:</label>
+        {{ Formulario.dueño }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Crear Mascota</button>
+</form>
+{% endblock %}

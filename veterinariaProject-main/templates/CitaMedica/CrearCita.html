@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h2>{{ Titulo }}</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ Formulario.as_p }}  <!-- Esto mostrará el formulario de manera automática -->
+        <button type="submit">Crear Cita Médica</button>
+    </form>
+{% endblock %}

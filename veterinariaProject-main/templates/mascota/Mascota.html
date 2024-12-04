@@ -1,0 +1,10 @@
+
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2>Gestión de Mascotas</h2>
+    <ul>
+        <li><a href="{% url 'CrearMascota' %}">Crear Mascota</a></li>
+        <li><a href="{% url 'MostrarMascota' %}">Listar Mascotas</a></li>
+    </ul>
+{% endblock %}

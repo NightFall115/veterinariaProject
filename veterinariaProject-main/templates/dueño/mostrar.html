@@ -1,0 +1,52 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h2>Listado de Dueños</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>RUT</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if dueños %}
+            {% for dueño in dueños %}
+            <tr>
+                <td>{{ dueño.nombre }}</td>
+                <td>{{ dueño.rut }}</td>
+                <td>{{ dueño.telefono }}</td>
+                <td>{{ dueño.direccion }}</td>
+                <td>
+                    <a href="{% url 'EditarDueño' dueño.id %}">Editar</a>
+                    <button onclick="eliminar({{ dueño.id }})">Eliminar</button>
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="5">No hay dueños registrados.</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+
+<script>
+    const eliminar = (id) => {
+        Swal.fire({
+            title: '¿Está seguro de eliminar el dueño?',
+            showDenyButton: true,
+            icon: 'error',
+            confirmButtonText: 'Eliminar',
+            denyButtonText: 'No'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '/eliminarDueño/' + id;
+            }
+        });
+    }
+</script>
+{% endblock %}

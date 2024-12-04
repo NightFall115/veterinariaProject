@@ -1,0 +1,9 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2>Gestión de Tratamientos</h2>
+    <ul>
+        <li><a href="{% url 'CrearTratamiento' %}">Crear Tratamiento</a></li>
+        <li><a href="{% url 'MostrarTratamiento' %}">Listar Tratamientos</a></li>
+    </ul>
+{% endblock %}

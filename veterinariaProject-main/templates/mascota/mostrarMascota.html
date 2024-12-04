@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h2>Lista de Mascotas</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Raza</th>
+            <th>Edad</th>
+            <th>Tipo</th>
+            <th>Dueño</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mascota in lista %}
+        <tr>
+            <td>{{ mascota.nombre }}</td>
+            <td>{{ mascota.raza }}</td>
+            <td>{{ mascota.edad }}</td>
+            <td>{{ mascota.tipo }}</td>
+            <td>{{ mascota.dueño }}</td>
+            <td>
+                <a href="{% url 'EditarMascota' mascota.id %}" class="btn btn-warning">Editar</a>
+                <a href="{% url 'EliminarMascota' mascota.id %}"  onclick="return confirm('¿Estás seguro de eliminar esta mascota?');">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'CrearMascota' %}" class="btn btn-success">Crear Nueva Mascota</a>
+{% endblock %}
